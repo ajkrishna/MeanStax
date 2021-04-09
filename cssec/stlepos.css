@@ -1,0 +1,48 @@
+/*
+tagname{
+property:value;
+property2:value2;
+}*/
+body{
+    background-color: seashell;
+}
+h1{
+    color:sienna;
+    text-align: center;
+    text-decoration: underline;
+    height: 20px;
+    
+    
+}
+.main{
+    margin:auto;
+    border:10px solid royalblue ;
+    width:30%;
+    height:80px;
+    
+    
+}
+.first,.second,.third{
+    position: absolute;
+    top:20%;
+}
+
+.first{
+    color:red;
+    position: absolute;
+    left:10px;
+}
+.second{
+    color:salmon; 
+    position: absolute;
+    left:500px;
+}
+.third{
+    color:rgb(50, 63, 55);
+    position: absolute;
+    left:1000px;
+}
+
+
+
+

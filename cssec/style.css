@@ -1,0 +1,45 @@
+/*
+tagname{
+property:value;
+property2:value2;
+}*/
+body{
+    background-color: seashell;
+}
+h1{
+    color:sienna;
+    text-align: center;
+    text-decoration: underline;
+}
+div{
+    color:skyblue;
+    float:left;
+    width:20%;
+    height:300px;
+    border: 2px solid royalblue;
+    background-color: skyblue;
+}
+.first{
+    color:red;
+    margin-left: 10px;
+}
+.second{
+    color:salmon; 
+    margin-left: 200px;
+}
+.third{
+    color:rgb(50, 63, 55);
+    margin-left: 200px;
+}
+
+.fir{
+    width:30%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.sec{
+    width:50%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+

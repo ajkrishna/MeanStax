@@ -1,0 +1,49 @@
+body{
+    background-color: snow;
+}
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Kiwi Maru', serif;
+    background-color: cornflowerblue;
+}
+.main
+{
+   height:600px ;
+   width:80%;
+   background-color: coral;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   justify-content: space-around;
+}
+.part{
+    
+    width:180px;
+    height:400px;
+}
+
+
+
+.fir{
+    background-color: steelblue;
+    
+    
+}
+.sec{
+    background-color:turquoise;
+    
+}
+.th{
+    background-color: rgb(96, 159, 184);
+   
+}
+.four{
+    background-color: rgb(135, 156, 40);
+   
+}
+.fiv{
+    background-color: rgb(180, 25, 25);
+   
+}

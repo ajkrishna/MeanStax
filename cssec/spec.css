@@ -1,0 +1,47 @@
+body{
+    background-color: snow;
+}
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Kiwi Maru', serif;
+}
+.container
+{
+    display: flex;
+}
+.fir,.sec,.th,.four,.fiv{
+    
+position: absolute;
+top:20%;
+    height: 400px;
+    width: 180px;
+}
+
+.fir{
+    background-color: steelblue;
+    position: absolute;
+    left:200px;
+    
+}
+.sec{
+    background-color:turquoise;
+    position: absolute;
+    left:400px;
+}
+.th{
+    background-color: rgb(96, 159, 184);
+    position: absolute;
+    left:600px;
+}
+.four{
+    background-color: rgb(135, 156, 40);
+    position: absolute;
+    left:800px;
+}
+.fiv{
+    background-color: rgb(180, 25, 25);
+    position: absolute;
+    left:1000px;
+}
