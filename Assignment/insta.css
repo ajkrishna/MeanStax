@@ -1,0 +1,109 @@
+body{
+    display: flex;
+    background-color: #fafafa;
+}
+a{
+    text-decoration: none;
+}
+.a1{
+    height:80%;
+    width:25%;
+    position: absolute;
+    left:21%;top:5%;right: 4px;
+    margin-top: 12px;
+   
+
+}
+.a2{
+    background-color: white;
+    border:solid 1px grey;
+    height:395px;width: 500px;
+    position: relative;
+    left:590px;top:52px;
+    margin-top: 12px;
+    max-width: 350px;
+
+}
+.login{
+    height: 380px;margin:5px ;position: absolute;
+    left: 17px;right: 17px;
+}
+.signup{
+    border:solid 1px gray;
+    background-color: white;
+    height: 60px;
+    width:500px;position: absolute;
+    left:0px;top:310px;
+    display: flex;justify-content: center;
+    margin-top: 100px;
+    max-width: 350px;
+}
+.app{
+    height: 95px;position: absolute;
+    left:0px;top:480px;width: 350px;text-align: center;
+    font-size: 14px;
+}
+.inst{
+    display: flex;
+    justify-content: center;
+    margin: 22px auto 12px;
+    font-family: 'Cookie', cursive;
+    font-weight: bold;
+    font-size: 55px;
+
+}
+.part{
+   
+   height: 40px;
+   font-size: 13px;
+   background-color:whitesmoke;
+   margin-top: auto;
+}
+.t1{
+    position:relative;
+    top: -18px;
+}
+.line{
+    margin-top: -6px;
+}
+.r2{
+    display: flex;
+    justify-items: center;
+    margin-top: 12px;
+    font-size: 13px;font-weight: 500;color: gray;
+}
+hr{
+    height: 2px;
+}
+.log{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.fb1{
+    margin-left:3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #385185;
+}
+.forg{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.as,.ps{
+    height: 40px;
+    width: 140px;
+}
+.as{
+    position: absolute;
+    left:30px;
+}
+.ps{
+    position: absolute;
+    right: 30px;
+}
+.a2,.signup,.app{
+    width:100%;
+   
+}
