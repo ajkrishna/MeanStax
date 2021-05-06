@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch todos</h1>
+    <button onclick="fetchData()">Fetch</button>
+   <div><table><tbody id="result"></tbody></table></div>
+</body>
+<script>
+   /* function fetchData()
+    {
+        var request=new XMLHttpRequest();
+        request.open("get","https://jsonplaceholder.typicode.com/todos")
+        request.send();
+        request.onreadystatechange=()=>{
+        if(request.readyState==4)
+            if(request.status>199&request.status<300)
+            {
+                var todos=JSON.parse(request.responseText);
+                var data=todos.filter(todo=>todo.userId==1)
+                populate(data);
+            }
+        else
+            alert("Failed to fetch");  
+        }  
+    }*/
+    function fetchData()
+    {
+        fetch('https://jsonplaceholder.typicode.com/todos')//default takes get method
+        .then(res=>{
+            if(!res.ok)
+            {throw new Error("Failed to fetch data")}
+            else
+            {res.json()
+                .then(data => populate(data))
+                .catch(err=>alert(err.message))}
+                })
+        
+    }
+    function populate(pt)
+    {
+        var dat=pt.filter(todo=>todo.userId==1&&todo.completed==true);
+        let html_val=``;
+        for(let todos of dat)
+        {
+        html_val+=`<tr><td>UserId:${todos.userId}</td>
+        <td>TodoId:${todos.id}</td>
+        <td>Title:${todos.title}</td>
+        <td>Completed:${todos.completed}</td>
+        </tr> `
+        }
+    document.querySelector("#result").innerHTML=html_val;   
+    }
+</script>
+</html>

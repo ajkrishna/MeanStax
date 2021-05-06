@@ -54,15 +54,16 @@ class Bank{
             
         }
     static deposit()
-        {   var amount=parseInt(deposit.value);
+        {   
+            var amount=parseInt(deposit.value);
             let accno=acno.value;
             let users=Bank.getAccountDetails();
-            var amt=amount+users[accno]["balance"];
-            users[accno["balance"]]=amt;
+            let amt=amount+users[accno]["balance"];
             let html_val1=`<h5>Cash deposited is ${amount}<h5>`
             document.querySelector("#deparea").innerHTML=html_val1;
             let html_val=`<h5>Available bal:${amt}<h5>`
             document.querySelector("#resarea").innerHTML=html_val;
+            document.querySelector("#deposit").innerHTML=" ";
         }
     static withdraw()
         {   let amount=parseInt(withdraw.value);
@@ -71,14 +72,15 @@ class Bank{
             if(amount<=users[accno]["balance"])
             {
             var amt=users[accno]["balance"]-amount;
-            users[accno["balance"]]=amt;
+            users[accno]["balance"]=amt;
             let html_val1=`<h5>Cash withdrawn is ${amount}<h5>`
             document.querySelector("#deparea").innerHTML=html_val1;
             let html_val=`<h5>Available bal:${amt}<h5>`
             document.querySelector("#resarea").innerHTML=html_val;
             }
             else
-            document.querySelector("#deparea").innerHTML=`<h5>Limit exceeded<h5>`;
+            {document.querySelector("#deparea").innerHTML=`<h5>Limit exceeded<h5>`;}
+            document.querySelector("#withdraw").innerHTML=" ";
         }
     }
     

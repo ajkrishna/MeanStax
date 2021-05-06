@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Fetch Users</h1> 
+   <button onclick="fetchData()">Fetch</button>
+   <div><table><tbody id="result"></tbody></table></div>
+</body>
+<script>
+    function fetchData()
+    {
+        var request=new XMLHttpRequest();
+        request.open("get","https://jsonplaceholder.typicode.com/users")//2 args :method,url
+        request.send();
+        request.onreadystatechange=()=>{
+        if(request.readyState==4)
+            if(request.status>199&request.status<300)
+            {
+                var data=JSON.parse(request.responseText)
+                populate(data);
+            }
+        else
+        alert("Failed")
+    }
+}
+function populate(dat)
+{
+    console.log(dat)
+    for(let users of dat)
+    {
+        const list = document.getElementById('result');
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>ID:${users.id}</td>
+                        <td>Name:${users.name}</td>
+                        <td>Street:${users.address.street}</td>`;  
+        //row.innerHTML=JSON.stringify(users); 
+        list.appendChild(row);
+    } 
+}
+</script>
+</html>

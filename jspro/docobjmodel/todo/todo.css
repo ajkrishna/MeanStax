@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+  }
+h1{
+    text-align: center;
+}
+.container{
+    margin-top: 20px;
+    /*border: 2px solid black;*/   
+}
+/*.form-signin{
+    
+    border: solid 2px green;}*/
+.form-label-group,.check{
+    padding:7px;
+    width:40%;
+    margin: 0 auto;
+    
+    /*border: solid 2px red;*/
+}
+.form-check{
+    margin-left: 15px;
+}
+.radbut{
+    margin-left: 5px;
+}
+th,td,tr {
+    width: 200px;
+    padding: 5px;
+  } 
+table{
+/*border: black solid 2px;*/
+text-align: center;
+margin: 0 auto;
+}
+.btn{
+    width:13rem
+}
