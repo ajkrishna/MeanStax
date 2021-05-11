@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .check{
+            display: flex;
+            
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2 style="padding: 9px;">Country Fetch</h2>
+        <div class="row">
+        <div class="form-label-group col-3 check">
+            <input type="text" id="ctry" class="form-control" >
+          </div>
+          <div class=" d-grid check col-3">
+            <button type="button" class="btn btn-outline-primary " style="width:5rem;" 
+        onclick="fetchc()">Fetch</button> </div></div>
+       <div id="result"></div>
+       </div>
+</body>
+<script>
+    function fetchc()
+    {
+        let country=ctry.value;
+        fetch(`https://restcountries.eu/rest/v2/name/${country}`)
+        .then(res=>{
+           if(!res.ok)
+            {throw new Error("Failed to fetch data")}
+            else
+            {
+                res.json()
+                .then(data => populate(data))
+                .catch(err=>alert(err.message))
+                console.log(country);
+            }
+                })
+    }
+    function populate(dat)
+    {
+        let html_val=``;
+        for(let cty of dat)
+        {
+        html_val+=`<div class="card" style="width: 18rem;margin-top:1rem">
+        <img alt="Not Available" src=${cty.flag} class="card-img-top">
+        <div class="card-body">
+            <p class="card-text">Name:${cty.name}</p>
+            <p class="card-text">Nationality:${cty.demonym}</p>
+            <p class="card-text">Currency:${cty.currencies.map(crncy=>crncy.name)}</p>
+        </div>
+        </div>`
+        }
+    document.querySelector("#result").innerHTML=html_val;   
+    }
+</script>
+</html>
