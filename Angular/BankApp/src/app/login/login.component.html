@@ -3,20 +3,21 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
+            <h5 style="text-align: center;">{{aim}}</h5>
             <h5 class="card-title text-center">Login</h5>
             <form class="form-signin">
                 <div class="form-label-group">
-                    <input type="text" id="acno" class="form-control" placeholder="Account Number">
+                    <input type="text" id="acno" class="form-control" [value]="accno" (change)="accchange($event)" placeholder="Account Number">
                   </div>
               <div class="form-label-group">
-                <input type="text" id="username" class="form-control" placeholder="User Name" >
+                <input type="text" id="username" class="form-control" (change)="unamechange($event)" placeholder="User Name" >
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="pwd" class="form-control" placeholder="Password" >
+                <input type="password" id="pwd" class="form-control" (change)="paschange($event)" placeholder="Password" >
               </div>
               <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" onclick="Bank.login()" style="font-size: medium;">LOGIN</button>
+                <button class="btn btn-primary" type="button" (click)="login()" style="font-size: medium;">LOGIN</button>
               </div>
             </form>
           </div>
