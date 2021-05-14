@@ -21,19 +21,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  accchange(event:any){
-    this.accno=event.target.value;
-  }
-  paschange(event:any){
-    this.pswd=event.target.value;
-  }
+ // accchange(event:any){
+ //   this.accno=event.target.value;
+  //}
+ // paschange(event:any){
+  //  this.pswd=event.target.value;
+ // }
   unamechange(event:any){
     this.usname=event.target.value;
   }
-  login()
+  login(a:any,p:any)
   {
-    var acno=this.accno;
-    var pwd=this.pswd;
+    var acno=a.value;
+    var pwd=p.value;
     var uname=this.usname;
     let users=this.accountDetails;
             if(acno in users)
