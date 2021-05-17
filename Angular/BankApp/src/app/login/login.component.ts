@@ -1,4 +1,6 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,16 +19,10 @@ export class LoginComponent implements OnInit {
     1003:{acno:1003,actype:"current",username:"userfour",password:"userfour",balance:6000}
         } 
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
- // accchange(event:any){
- //   this.accno=event.target.value;
-  //}
- // paschange(event:any){
-  //  this.pswd=event.target.value;
- // }
   unamechange(event:any){
     this.usname=event.target.value;
   }
@@ -39,12 +35,16 @@ export class LoginComponent implements OnInit {
             if(acno in users)
             {
             if(uname==users[acno]["username"]&&pwd==users[acno]["password"])
-            alert("Login Successful")
+            this.router.navigateByUrl("dashboard");
             else
             alert("Invalid username or password")
             }
             else
             alert("Invalid Account No")
-             
+            
+  }
+  register()
+  {
+    this.router.navigateByUrl("register");
   }
 }
