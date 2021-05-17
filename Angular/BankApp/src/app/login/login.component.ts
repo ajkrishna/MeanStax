@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
   unamechange(event:any){
     this.usname=event.target.value;
   }
-  login(a:any,p:any)
+  login()
   {
-    var acno=a.value;
-    var pwd=p.value;
+    var acno=this.accno;
+    var pwd=this.pswd;
     var uname=this.usname;
     let users=this.accountDetails;
             if(acno in users)
