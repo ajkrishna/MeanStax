@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,9 @@ export class LoginComponent implements OnInit {
   accno="Account No please"
   pswd="";
   usname="";
-  accountDetails:any={
-    1000:{acno:1000,actype:"savings",username:"userone",password:"userone",balance:50000},
-    1001:{acno:1001,actype:"savings",username:"usertwo",password:"usertwo",balance:5000},
-    1002:{acno:1002,actype:"current",username:"userthree",password:"userthree",balance:10000},
-    1003:{acno:1003,actype:"current",username:"userfour",password:"userfour",balance:6000}
-        } 
+  
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private dataservice:DataService) { }
 
   ngOnInit(): void {
   }
@@ -31,20 +27,16 @@ export class LoginComponent implements OnInit {
     var acno=this.accno;
     var pwd=this.pswd;
     var uname=this.usname;
-    let users=this.accountDetails;
-            if(acno in users)
-            {
-            if(uname==users[acno]["username"]&&pwd==users[acno]["password"])
-            this.router.navigateByUrl("dashboard");
-            else
-            alert("Invalid username or password")
-            }
-            else
-            alert("Invalid Account No")
-            
+    const res=this.dataservice.login(acno,pwd,uname);
+    if(res)
+    {alert("Login Successful")
+      this.router.navigateByUrl("dashboard");}
   }
+
   register()
   {
     this.router.navigateByUrl("register");
   }
 }
+
+

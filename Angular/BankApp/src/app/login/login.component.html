@@ -5,7 +5,7 @@
           <div class="card-body">
             <h5 style="text-align: center;">{{aim}}</h5>
             <h5 class="card-title text-center">Login</h5>
-            <form class="form-signin">
+            <form class="form-signin" (ngSubmit)="login()">
                 <div class="form-label-group">
                     <input type="text" id="acno" class="form-control" [(ngModel)]="accno" name="ac" placeholder="Account Number">
                   </div>
@@ -17,7 +17,7 @@
                 <input type="password" id="pwd" class="form-control" [(ngModel)]="pswd" name="pass" placeholder="Password" >
               </div>
               <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" (click)="login()" style="font-size: medium;">LOGIN</button>
+                <button class="btn btn-primary" type="submit" style="font-size: medium;">LOGIN</button>
               </div><br>
               <div class="d-grid gap-2">
                 <button class="btn" type="button" (click)="register()" style="font-size: medium;">CREATE NEW ACCOUNT</button>
