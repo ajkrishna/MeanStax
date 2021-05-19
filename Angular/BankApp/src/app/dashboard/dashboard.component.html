@@ -7,16 +7,16 @@
           <div class="card-body">
             
             
-            <form class="form-signin" >
+            <form class="form-signin" (ngSubmit)="deposit()">
                 <div class="form-label-group">
-                    <input type="text" id="acno" class="form-control"  placeholder="Account Number">
+                    <input type="text" id="acno" class="form-control" [(ngModel)]="accno" name="ac" placeholder="Account Number">
                   </div>
               <div class="form-label-group">
-                <input type="text" id="username" class="form-control"  placeholder="User Name" >
+                <input type="password" id="password" class="form-control" [(ngModel)]="pwd" name="pass" placeholder="Password" >
               </div>
 
               <div class="form-label-group">
-                <input type="number" id="amt" class="form-control"  placeholder="Amount" >
+                <input type="number" id="amt" class="form-control" [(ngModel)]="amt"name="amt" placeholder="Amount" >
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">DEPOSIT</button>
@@ -30,16 +30,16 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             
-            <form class="form-signin" >
+            <form class="form-signin" (ngSubmit)="withdraw()">
                 <div class="form-label-group">
-                    <input type="text" id="acno1" class="form-control"  placeholder="Account Number">
+                    <input type="text" id="acno1" class="form-control" [(ngModel)]="waccno" placeholder="Account Number">
                   </div>
               <div class="form-label-group">
-                <input type="text" id="username1" class="form-control"  placeholder="User Name" >
+                <input type="password" id="pwd1" class="form-control" [(ngModel)]="wpwd" placeholder="Password" >
               </div>
 
               <div class="form-label-group">
-                <input type="number" id="amt1" class="form-control"  placeholder="Amount" >
+                <input type="number" id="amt1" class="form-control" [(ngModel)]="wamt" placeholder="Amount" >
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">WITHDRAW</button>
