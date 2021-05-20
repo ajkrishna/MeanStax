@@ -4,21 +4,28 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-            <form (ngSubmit)="reg()" class="form-signin">
+            <form [formGroup]="registerForm" class="form-signin" (ngSubmit)="reg()">
                 <div class="form-label-group">
-                    <input type="text" id="acno" class="form-control" [(ngModel)]="accno" name="ac" placeholder="Account Number">
+                    <input type="text" id="accno" class="form-control" formControlName="accno" name="accno" placeholder="Account Number">
+                    <div *ngIf="(this.registerForm.get('accno')?.touched||this.registerForm.get('accno')?.dirty)&&
+                    this.registerForm.get('accno')?.errors" class="error">Invalid Account No</div>
                   </div>
               <div class="form-label-group">
-                <input type="text" id="username" class="form-control" [(ngModel)]="uname" name="user" placeholder="User Name" >
+                <input type="text" id="uname" class="form-control" formControlName="uname" name="uname" placeholder="User Name" >
+                <div *ngIf="(this.registerForm.get('uname')?.touched||this.registerForm.get('uname')?.dirty)&&
+                this.registerForm.get('uname')?.errors" class="error">Invalid Username</div>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="pwd" class="form-control" [(ngModel)]="pswd" name="pass" placeholder="Password" >
+                <input type="password" id="pswd" class="form-control" formControlName="pswd" name="pswd" placeholder="Password" >
+                <div *ngIf="(this.registerForm.get('pswd')?.touched||this.registerForm.get('pswd')?.dirty)&&
+                this.registerForm.get('pswd')?.errors" class="error">Invalid Password</div>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-success" type="submit"
                 style="font-size: medium;border-radius: 0rem;">CREATE NEW ACCOUNT</button>
-              </div>
+              </div><br>
+              <a routerLink="" style="text-decoration: none;">Log In</a>
             </form>
           </div>
         </div>

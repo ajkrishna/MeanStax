@@ -5,16 +5,22 @@
           <div class="card-body">
             <h5 style="text-align: center;">{{aim}}</h5>
             <h5 class="card-title text-center">Login</h5>
-            <form class="form-signin" (ngSubmit)="login()">
+            <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="login()">
                 <div class="form-label-group">
-                    <input type="text" id="acno" class="form-control" [(ngModel)]="accno" name="ac" placeholder="Account Number">
+                    <input type="text" id="accno" class="form-control" formControlName="accno" name="accno" placeholder="Account Number">
+                    <div *ngIf="(this.loginForm.get('accno')?.touched||this.loginForm.get('accno')?.dirty)&&
+                    this.loginForm.get('accno')?.errors" class="error">Invalid Account No</div>
                   </div>
               <div class="form-label-group">
-                <input type="text" id="username" class="form-control" (change)="unamechange($event)" placeholder="User Name" >
+                <input type="text" id="uname" class="form-control" formControlName="uname" name="unmae" placeholder="User Name" >
+                <div *ngIf="(this.loginForm.get('uname')?.touched||this.loginForm.get('uname')?.dirty)&&
+                    this.loginForm.get('uname')?.errors" class="error">Invalid Username</div>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="pwd" class="form-control" [(ngModel)]="pswd" name="pass" placeholder="Password" >
+                <input type="password" id="pswd" class="form-control" formControlName="pswd" name="pswd" placeholder="Password" >
+                <div *ngIf="(this.loginForm.get('pswd')?.touched||this.loginForm.get('pswd')?.dirty)&&
+                    this.loginForm.get('pswd')?.errors" class="error">Invalid Password</div>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">LOGIN</button>

@@ -7,16 +7,22 @@
           <div class="card-body">
             
             
-            <form class="form-signin" (ngSubmit)="deposit()">
+            <form [formGroup]="depForm" class="form-signin"  (ngSubmit)="deposit()">
                 <div class="form-label-group">
-                    <input type="text" id="acno" class="form-control" [(ngModel)]="accno" name="ac" placeholder="Account Number">
+                    <input type="text" id="accno" class="form-control" formControlName="accno" name="accno" placeholder="Account Number">
+                  <div *ngIf="(this.depForm.get('accno')?.touched || this.depForm.get('accno')?.dirty)&&
+                  this.depForm.get('accno')?.errors" class="error">Invalid Account No</div>  
                   </div>
               <div class="form-label-group">
-                <input type="password" id="password" class="form-control" [(ngModel)]="pwd" name="pass" placeholder="Password" >
+                <input type="password" id="pwd" class="form-control" formControlName="pwd" name="pwd" placeholder="Password" >
+                <div *ngIf="(depForm.get('pwd')?.touched||depForm.get('pwd')?.dirty)&&
+                depForm.get('pwd')?.errors" class="error">Invalid Password</div>
               </div>
 
               <div class="form-label-group">
-                <input type="number" id="amt" class="form-control" [(ngModel)]="amt"name="amt" placeholder="Amount" >
+                <input type="number" id="amt" class="form-control" formControlName="amt" name="amt" placeholder="Amount" >
+                <div *ngIf="(depForm.get('amt')?.touched||depForm.get('amt')?.dirty)&&
+                depForm.get('amt')?.errors" class="error">Invalid Amount</div>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">DEPOSIT</button>
@@ -30,16 +36,22 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             
-            <form class="form-signin" (ngSubmit)="withdraw()">
+            <form [formGroup]="withForm" class="form-signin"  (ngSubmit)="withdraw()">
                 <div class="form-label-group">
-                    <input type="text" id="acno1" class="form-control" [(ngModel)]="waccno" placeholder="Account Number">
+                    <input type="text" id="waccno" class="form-control" formControlName="waccno" name="waccno" placeholder="Account Number">
+                    <div *ngIf="(withForm.get('waccno')?.touched||withForm.get('waccno')?.dirty)&&
+                    withForm.get('waccno')?.errors" class="error">Invalid Account No</div>
                   </div>
               <div class="form-label-group">
-                <input type="password" id="pwd1" class="form-control" [(ngModel)]="wpwd" placeholder="Password" >
+                <input type="password" id="wpwd" class="form-control" formControlName="wpwd" name="wpwd" placeholder="Password" >
+                <div *ngIf="(withForm.get('wpwd')?.touched||withForm.get('wpwd')?.dirty)&&
+                withForm.get('wpwd')?.errors" class="error">Invalid Password</div>
               </div>
 
               <div class="form-label-group">
-                <input type="number" id="amt1" class="form-control" [(ngModel)]="wamt" placeholder="Amount" >
+                <input type="number" id="wamt" class="form-control" formControlName="wamt" name="wamt" placeholder="Amount" >
+                <div *ngIf="(withForm.get('wamt')?.touched||withForm.get('wamt')?.dirty)&&
+                withForm.get('wamt')?.errors" class="error">Invalid Amount</div>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">WITHDRAW</button>

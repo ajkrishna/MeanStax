@@ -1,5 +1,6 @@
 import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
@@ -10,28 +11,31 @@ import { DataService } from '../service/data.service';
 })
 export class LoginComponent implements OnInit {
   aim="Your perfect Banking partner";
-  accno="Account No please"
-  pswd="";
-  usname="";
+  loginForm=this.fb.group({
+    accno:['',[Validators.required,Validators.minLength(4),Validators.pattern('[0-9]*')]],
+    uname:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
+    pswd:['',[Validators.required,Validators.minLength(4),Validators.pattern('[a-zA-Z0-9]*')]]
+  })
   
 
-  constructor(private router:Router,private dataservice:DataService) { }
+  constructor(private router:Router,private dataservice:DataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
-  unamechange(event:any){
-    this.usname=event.target.value;
-  }
+  
   login()
   {
-    var acno=this.accno;
-    var pwd=this.pswd;
-    var uname=this.usname;
-    const res=this.dataservice.login(acno,pwd,uname);
+    if(this.loginForm.valid)
+  {
+  var acno=this.loginForm.value.accno;
+  var pswd=this.loginForm.value.pswd;
+  var uname=this.loginForm.value.uname;
+    
+    const res=this.dataservice.login(acno,pswd,uname);
     if(res)
-    {alert("Login Successful")
-      this.router.navigateByUrl("dashboard");}
+      this.router.navigateByUrl("dashboard");
   }
+}
 
   register()
   {
