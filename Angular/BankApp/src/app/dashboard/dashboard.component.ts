@@ -8,16 +8,18 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  user=this.dataservice.currentUser;
+  
   depForm=this.fb.group({
   accno:['',[Validators.required,Validators.minLength(4),Validators.pattern('[0-9]*')]],
   pwd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
-  amt:['',[Validators.required,Validators.minLength(4)]]
+  amt:['',[Validators.required]]
   
   })
   withForm=this.fb.group({
   waccno:['',[Validators.required,Validators.minLength(4),Validators.pattern('[0-9]*')]],
   wpwd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]],
-  wamt:['',[Validators.required,Validators.minLength(4)]]
+  wamt:['',[Validators.required]]
 
   })
   

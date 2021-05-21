@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
   var uname=this.loginForm.value.uname;
     
     const res=this.dataservice.login(acno,pswd,uname);
+   // user=this.dataservice.currentUser
     if(res)
       this.router.navigateByUrl("dashboard");
   }
