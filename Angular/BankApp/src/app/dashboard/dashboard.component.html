@@ -56,9 +56,13 @@
               <div class="d-grid gap-2">
                 <button class="btn btn-primary" type="submit" style="font-size: medium;">WITHDRAW</button>
               </div><br>
-            </form>
+            </form>     
           </div>
-        </div>
+         </div>
       </div>
+      <div class="d-grid gap-2 del">
+        <app-deleteac (onDelete)="onDelete($event)" [item]="acno"></app-deleteac>
+      <button type="submit" class="btn btn-danger delbtn" (click)="deleteac()">Delete Account</button></div>
     </div>
+    <div class="col-4"></div>
   </div>

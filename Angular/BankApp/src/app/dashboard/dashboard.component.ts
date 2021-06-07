@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,7 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  user=this.dataservice.currentUser;
+  //user=this.dataservice.currentUser;
   
   depForm=this.fb.group({
   accno:['',[Validators.required,Validators.minLength(4),Validators.pattern('[0-9]*')]],
@@ -23,8 +25,12 @@ export class DashboardComponent implements OnInit {
 
   })
   
+  user:any;
+  acno:any;
 
-  constructor(private dataservice:DataService,private fb:FormBuilder) { }
+  constructor(private dataservice:DataService,private fb:FormBuilder,private router:Router) {
+    this.user=localStorage.getItem("name")
+   }
 
   ngOnInit(): void {
   }
@@ -36,10 +42,17 @@ deposit()
   var acno=this.depForm.value.accno;
   var pswd=this.depForm.value.pwd;
   var amount=this.depForm.value.amt;
-  const res=this.dataservice.deposit(acno,pswd,amount);
-  if(res)
-  alert("The given amount "+amount+" has been credited...Your new balance is "+res)
-  }
+  this.dataservice.deposit(acno,pswd,amount)
+  .subscribe((result:any)=>{
+    if(result)
+    {
+     // console.log(result.message); 
+    alert(result.message)
+     }                      },
+    (result:any)=>{
+    alert(result.error.message)
+          })
+}
 }
 
 withdraw()
@@ -49,10 +62,31 @@ withdraw()
   var acno=this.withForm.value.waccno;
   var pswd=this.withForm.value.wpwd;
   var amount=this.withForm.value.wamt;
-  const res=this.dataservice.withdraw(acno,pswd,amount);
-  if(res)
-  alert("The given amount "+amount+" has been debited...Your new balance is "+res)
+  this.dataservice.withdraw(acno,pswd,amount)
+  .subscribe((result:any)=>{
+    if(result){
+      alert(result.message)
+    }
+  },
+  (result:any)=>{
+  alert(result.error.message)
+        })
   }
+}
+onDelete(event:any){
+  this.dataservice.deleteAccDetails(event)
+  .subscribe((result:any)=>{
+    if(result){
+      alert(result.message)
+      this.router.navigateByUrl("")
+    }
+  },(result:any)=>{
+    alert(result.error.message)
+  })
+}
+
+deleteac(){
+  this.acno=localStorage.getItem("acno")
 }
 
 }

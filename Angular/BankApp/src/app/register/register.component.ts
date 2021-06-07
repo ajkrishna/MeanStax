@@ -28,16 +28,23 @@ reg()
   var acno=this.registerForm.value.accno;
   var pswd=this.registerForm.value.pswd;
   var uname=this.registerForm.value.uname;
-  const result=this.dataservice.reg(acno,pswd,uname);
-  if(result)
-  {
-    alert("Successfully registered");
-    this.router.navigateByUrl("");
+  this.dataservice.reg(acno,pswd,uname)
+  
+  .subscribe((result:any)=>{
+    if(result)
+    {
+     // console.log(result.message);
+      
+    alert(result.message);
+    this.router.navigateByUrl("")
+     }
+                          },
+    (result)=>{
+    alert(result.error.message)
+          })
+  
+              }
   }
-  else
-    alert("User already Exists....Please Login");
-  }
-}
 
 }
 

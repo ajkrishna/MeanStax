@@ -11,3 +11,12 @@ h1{
     color: red;
     margin-left: 7px;
 }
+.delbtn{
+    width:10rem;
+    margin: auto 0;
+    
+}
+.del{
+    display: flex;
+    justify-content: center;
+}

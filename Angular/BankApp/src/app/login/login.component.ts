@@ -31,10 +31,21 @@ export class LoginComponent implements OnInit {
   var pswd=this.loginForm.value.pswd;
   var uname=this.loginForm.value.uname;
     
-    const res=this.dataservice.login(acno,pswd,uname);
+    this.dataservice.login(acno,pswd,uname)
    // user=this.dataservice.currentUser
-    if(res)
+   .subscribe((result:any)=>{
+    if(result){
+      alert(result.message);
+      localStorage.setItem("name",result.name);
+      localStorage.setItem("acno",result.acno);
       this.router.navigateByUrl("dashboard");
+    }
+   },
+   (result)=>{
+     alert(result.error.message)
+     
+   })
+    
   }
 }
 
