@@ -10,6 +10,8 @@ export class DeleteacComponent implements OnInit {
 
   @Input() item:string | null | undefined;
   @Output() onDelete=new EventEmitter;
+  @Output() onCancel=new EventEmitter;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +19,10 @@ export class DeleteacComponent implements OnInit {
   delete(){
     this.onDelete.emit(this.item)
   }
+  cancel(){
+    alert("Cancelling...")
+    this.onCancel.emit()
+  }
+
 
 }

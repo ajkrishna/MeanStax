@@ -1,10 +1,13 @@
 <div class="container">
     
     <div class="row">
-        <h1 >Welcome {{user}}</h1>
+        <h1 [appHighlight]="acno?'style1':''">Welcome {{user}}</h1>
+        <h4>Login Details(Unformatted):{{iDate}}</h4>
+        <h4>Login Details(Formatted):{{iDate | date|uppercase}}</h4>
+        <h4>Login Details(Formatted):{{iDate | date:'medium'}}</h4>
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
-          <div class="card-body">
+          <div [ngClass]="acno?'style1':''" class="card-body">
             
             
             <form [formGroup]="depForm" class="form-signin"  (ngSubmit)="deposit()">
@@ -61,7 +64,7 @@
          </div>
       </div>
       <div class="d-grid gap-2 del">
-        <app-deleteac (onDelete)="onDelete($event)" [item]="acno"></app-deleteac>
+        <app-deleteac (onDelete)="onDelete($event)" (onCancel)="onCancel()" [item]="acno"></app-deleteac>
       <button type="submit" class="btn btn-danger delbtn" (click)="deleteac()">Delete Account</button></div>
     </div>
     <div class="col-4"></div>

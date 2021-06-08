@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   
   user:any;
   acno:any;
+  iDate:Date=new Date;
 
   constructor(private dataservice:DataService,private fb:FormBuilder,private router:Router) {
     this.user=localStorage.getItem("name")
@@ -83,6 +84,10 @@ onDelete(event:any){
   },(result:any)=>{
     alert(result.error.message)
   })
+}
+
+onCancel(){
+  this.acno=""
 }
 
 deleteac(){

@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 import { DeleteacComponent } from './deleteac/deleteac.component';
+//import { Highlight } from './directives/highlight.directives.directive';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { DeleteacComponent } from './deleteac/deleteac.component';
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
-    DeleteacComponent
+    DeleteacComponent,
+   // Highlight.DirectivesDirective,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

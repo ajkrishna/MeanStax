@@ -1,5 +1,5 @@
-<div *ngIf="item !=null">
+<div *ngIf="item">
     <p>Do you want to delete Account {{item}}?</p>
     <button (click)="delete()">Delete</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button>Cancel</button>
+    <button (click)="cancel()">Cancel</button>
 </div>
